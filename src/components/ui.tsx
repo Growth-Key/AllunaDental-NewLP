@@ -42,6 +42,41 @@ export function Em({ children }: { children: ReactNode }) {
   return <em className="font-display italic">{children}</em>;
 }
 
+/** Effective background color of each section, keyed by tone name. */
+const BLEND_TONES = {
+  ivory: "var(--color-ivory)",
+  cream: "var(--color-cream)",
+  sand: "var(--color-sand)",
+  // Tiers renders bg-sand/60 composited over the ivory page — match that exact tone.
+  tiers: "color-mix(in srgb, var(--color-sand) 60%, var(--color-ivory))",
+} as const;
+
+/**
+ * Height-neutral gradient band that dissolves the hard seam between two
+ * solidly-colored sections into a smooth fade. Place between sections in flow:
+ * `from` must equal the section above's tone, `to` the section below's. Pulled
+ * with negative margins so it straddles the boundary (~40px into each side)
+ * without adding page height or covering content; its edges match the neighbors
+ * and are therefore invisible.
+ */
+export function SectionBlend({
+  from,
+  to,
+}: {
+  from: keyof typeof BLEND_TONES;
+  to: keyof typeof BLEND_TONES;
+}) {
+  return (
+    <div
+      aria-hidden
+      className="relative z-[1] -my-10 h-20"
+      style={{
+        background: `linear-gradient(to bottom, ${BLEND_TONES[from]}, ${BLEND_TONES[to]})`,
+      }}
+    />
+  );
+}
+
 export function CtaLink({
   href,
   children,

@@ -1,21 +1,23 @@
 import Image from "next/image";
 import { Stars } from "./ui";
+import { HeroVideo } from "./HeroVideo";
 
 export function Hero() {
   return (
     <section className="relative flex min-h-[100svh] flex-col overflow-hidden">
-      {/* Temporary AI background plate — swap for real Alluna interior footage before launch */}
-      <video
-        className="absolute inset-0 h-full w-full object-cover"
-        src="/media/hero-bg-teal.mp4"
-        poster="/media/hero-poster-teal.jpg"
-        autoPlay
-        muted
-        loop
-        playsInline
-        aria-hidden="true"
+      {/* Real Alluna footage (Dr. Cohen, Studio City) — responsive desktop/mobile patient-journey loop */}
+      <HeroVideo />
+      {/* Legibility scrim. The footage loops through bright/busy/dark frames, so the dark
+          headline needs a content-agnostic light backing: a vertical wash (lifted in the
+          middle where the headline sits) plus a soft radial light-pool centered on the text. */}
+      <div className="absolute inset-0 bg-gradient-to-b from-ivory/75 via-ivory/45 to-ivory" />
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(125% 85% at 50% 45%, color-mix(in srgb, var(--color-ivory) 80%, transparent) 0%, color-mix(in srgb, var(--color-ivory) 40%, transparent) 40%, transparent 70%)",
+        }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-ivory/55 via-ivory/20 to-ivory" />
 
       <header className="relative z-10">
         <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-5 py-6 sm:px-8">
@@ -60,7 +62,7 @@ export function Hero() {
         <div className="mt-6 flex flex-col items-center gap-1.5">
           <p className="flex items-center gap-2.5 text-sm text-espresso">
             <Stars />
-            <span className="font-medium">5.0 · 153+ reviews on Google</span>
+            <span className="font-medium">5.0 · 170+ reviews on Google</span>
           </p>
           <p className="text-[13px] text-taupe">Trusted by hundreds of Studio City patients</p>
         </div>

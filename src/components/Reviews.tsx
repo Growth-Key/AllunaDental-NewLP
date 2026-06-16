@@ -18,7 +18,7 @@ export function Reviews() {
             sub={
               <span className="inline-flex flex-wrap items-center justify-center gap-x-2.5 gap-y-1">
                 <Stars />
-                <span className="font-medium text-espresso">5.0 across 153+ Google reviews</span>
+                <span className="font-medium text-espresso">5.0 across 170+ Google reviews</span>
                 <span className="text-taupe">· Verified patients</span>
               </span>
             }

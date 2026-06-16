@@ -85,7 +85,7 @@ export default async function Welcome({
             </h2>
             <p className="flex flex-wrap items-center justify-center gap-x-2.5 gap-y-1 text-sm">
               <Stars />
-              <span className="font-medium text-espresso">5.0 across 153+ Google reviews</span>
+              <span className="font-medium text-espresso">5.0 across 170+ Google reviews</span>
             </p>
           </div>
           <div className="mt-10">

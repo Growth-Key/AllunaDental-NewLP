@@ -42,3 +42,6 @@ next-env.d.ts
 
 # scraped reference material
 /.firecrawl
+
+# Hero video edit working files (raw footage, frames, intermediates)
+hero-edit/
